@@ -24,7 +24,8 @@ def mintTx(abiData, nonce, amount):
         'chainId': 2020,
         'gas': int(200000 * amount),
         'gasPrice': Web3.to_wei(gasPrice, 'gwei'),
-        'nonce': nonce
+        'nonce': nonce,
+        'value': int(amount * 0.5 * 10**18)
     })
     signed_txn = w3.eth.account.sign_transaction(mint_txn, private_key=myKey)
     return signed_txn
